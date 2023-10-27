@@ -2,15 +2,16 @@ import Link from 'next/link';
 import NavLinks from '@/app/ui/dashboard/nav-links';
 import AcmeLogo from '../acme-logo';
 import { PowerIcon } from '@heroicons/react/24/outline';
-import { signOut } from '@/auth';
+import clsx from "clsx";
+import {inter} from "@/app/ui/fonts";
+// import { signOut } from '@/auth';
 
 export default function SideNav() {
   return (
-    <div className="flex h-full flex-col px-3 py-4 md:px-2">
+    <div className={clsx("flex h-full flex-col px-3 py-4 md:px-2", inter.className)}>
       <Link
         className="mb-2 flex h-20 items-end justify-start rounded-md bg-blue-600 p-4 md:h-40"
-        href="/"
-      >
+        href="/">
         <div className="w-32 text-white md:w-40">
           <AcmeLogo />
         </div>
@@ -21,7 +22,7 @@ export default function SideNav() {
         <form
           action={async () => {
             'use server';
-            await signOut();
+            // await signOut();
           }}
         >
           <button className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
